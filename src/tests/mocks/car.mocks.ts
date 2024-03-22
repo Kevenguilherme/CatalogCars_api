@@ -1,3 +1,4 @@
+import { prisma } from '../../database/prisma';
 
 export const car = {
   name: "Lorem ipsum",
@@ -19,12 +20,12 @@ export const invalidDataCar = {
   name: "Lorem ipsum",
   description: "Lorem ipsum",
   brand: "Lorem ipsum",
-  year: "Invalid", // Valor inválido para year
-  km: "Invalid",   // Valor inválido para km
+  year: "Invalid", 
+  km: "Invalid",   
 };
 
 
-export const updateCar = {
+export const updatedCarMock = {
  name: "Lorem ipsum",
  description: "Lorem ipsum",
  brand: "Lorem ipsum",
@@ -39,3 +40,19 @@ export const invalidDataUpdateCar = {
  year: "Lorem ipsum",
  km: "Lorem ipsum",
 }
+
+
+export const getCarsList = async () => {
+  const cars = await prisma.car.findMany();
+
+  return [
+    {
+      id: "string",
+      name: "Lorem ipsum",
+      description: "Lorem ipsum",
+      brand: "Lorem ipsum",
+      year: 1,
+      km: 1
+    },
+  ];
+};

@@ -1,9 +1,17 @@
 import { z } from 'zod';
-import { carCreateSchema, carReturnSchema, carUpdateSchema } from '../schemas/car.schema';
+import { carCreateSchema, carReturnSchema } from '../schemas/car.schema';
 
+type UpdateCar = {
+ name?: string ;
+ description?: string ;
+ brand?: string ;
+ year?: number ;
+ km?: number ;
+}
 
-type createCar = z.infer<typeof carCreateSchema>
-type returnCar = z.infer<typeof carReturnSchema>
-type updateCar = z.infer<typeof carUpdateSchema>
+type CreateCar = z.infer<typeof carCreateSchema>
+type ReturnCar = z.infer<typeof carReturnSchema>
+// type UpdateCar = z.infer<typeof carUpdateSchema>
 
-export { createCar, returnCar, updateCar };
+export { CreateCar, ReturnCar, UpdateCar };
+
